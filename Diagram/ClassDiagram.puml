@@ -1,0 +1,73 @@
+@startuml
+
+class Address {
+    - id : int;
+    - address : String;
+    - Address(int id, String name);
+    + {static} Address of(int id, String name);
+}
+
+class Person {
+    - id : int;
+    - socialSecurityNumber : SocialSecurityNumber;
+    - firstName: String;
+    - lastName: String;
+    - birthDate: LocalDate;
+    - mainAddress: PersonalAddress;
+    - secondaryAddresses: List<PersonalAddress>;
+    - Person(int id, String firstName, String lastName, LocalDate birthDate, SocialSecurityNumber socialSecurityNumber, PersonalAddress mainAddress);
+    + Person changeName(String name);
+    + Person addSecondaryAddress(PersonalAddress... personalAddress);
+    + List<PersonalAddress> getSecondaryAddresses();
+    + Person rolocate(PersonalAddress newPersonalAddress);
+    + {static} WithIdBuilder of(String firstName, String lastName, LocalDate birthDate, PersonalAddress mainAddress);
+}
+
+class SocialSecurityNumber {
+    - number: long;
+    - private SocialSecurityNumber(long number);
+    + {static} SocialSecurityNumber of(long number);
+    + Long value();
+    + String format();
+}
+
+class PersonalAddress {
+    - id: int;
+    - address: String;
+    - PersonalAddress(int id, String address);
+    + {static} PersonalAddress of(int id, String address)
+}
+
+interface PersonRepository {
+    +Person putPerson(Person person);
+    +Person fetchPersonById(long id);
+}
+
+interface BaseBuilder {
+    BaseBuilder withSocialSecurityNumber(SocialSecurityNumber number);
+    Person build();
+}
+
+interface WithIdBuilder {
+    BaseBuilder withId(long id);
+}
+
+class Builder {
+        - id: int;
+        - firstName: String;
+        - lastName: String ;
+        - birthDate LocalDate;
+        - mainPersonalAddress: PersonalAddress;
+        - ssn SocialSecurityNumber;
+        + Builder(String name, String forename, LocalDate birthDate, PersonalAddress mainPersonalAddress);
+        + BaseBuilder withId(long id);
+        + Person build();
+}
+
+BaseBuilder <|-- Builder
+WithIdBuilder <|-- Builder
+Person .right.> Builder
+Person -- PersonalAddress: mainAddress
+Person "0:1" -- "0:n" PersonalAddress: secondaryAddress
+Person -- SocialSecurityNumber: ssn
+@enduml
