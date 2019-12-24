@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.osalam.bootrap</groupId>
     <artifactId>person-bootrap</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>person-bootrap</name>
     <description>Demo project for Spring Boot</description>
 
