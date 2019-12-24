@@ -60,7 +60,7 @@ public class Person {
         return this;
     }
 
-    List<PersonalAddress> getSecondaryAddresses() {
+    public List<PersonalAddress> getSecondaryAddresses() {
         return Collections.unmodifiableList(secondaryAddresses);
     }
 

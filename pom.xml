@@ -3,8 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.springframework</groupId>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>
+    <groupId>com.osalam</groupId>
     <artifactId>person-service</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -22,12 +26,12 @@
         <assertj.version>3.14.0</assertj.version>
         <mockito.version>3.1.0</mockito.version>
         <lombok.version>1.18.10</lombok.version>
-        <junit.version>5.5.2</junit.version>
     </properties>
 
     <modules>
-        <module>person-bootrap</module>
+        <module>person-bootstrap</module>
         <module>person-domain</module>
+        <module>person-data-jpa</module>
     </modules>
 
     <dependencies>
@@ -62,15 +66,19 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainer.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
