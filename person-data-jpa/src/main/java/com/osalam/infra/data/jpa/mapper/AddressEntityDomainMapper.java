@@ -13,7 +13,7 @@ public class AddressEntityDomainMapper {
         this.repository = repository;
     }
 
-    public PersonalAddressEntity mapToEntity(PersonalAddress address) {
+    PersonalAddressEntity mapToEntity(PersonalAddress address) {
         return repository.findByNumber(address.getId().getValue())
                 .orElse(createNewEntity(address));
     }
@@ -25,7 +25,7 @@ public class AddressEntityDomainMapper {
         return entity;
     }
 
-    public PersonalAddress mapToDomain(PersonalAddressEntity entity) {
+    PersonalAddress mapToDomain(PersonalAddressEntity entity) {
         return PersonalAddress.of(AddressNumber.of(entity.getNumber()), entity.getAddressLine());
     }
 }
