@@ -1,0 +1,13 @@
+version: '3'
+services:
+  person-db:
+    container_name: "person-db"
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'person_user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_USER: 'user'
+      MYSQL_ROOT_PASSWORD: 'osalamtang'
+    ports:
+      - "5433:5432"
