@@ -27,7 +27,7 @@ class PersonalAddressTest {
     }
 
     @Test
-    public void constructor_should_throw_error_if_id_null() {
+    void constructor_should_throw_error_if_id_null() {
         // Given
         String address = "My Address";
         // When

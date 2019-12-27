@@ -32,6 +32,8 @@
         <module>person-bootstrap</module>
         <module>person-domain</module>
         <module>person-data-jpa</module>
+        <module>person-application</module>
+        <module>person-data-rest</module>
     </modules>
 
     <dependencies>
