@@ -33,6 +33,7 @@
         <module>person-data-jpa</module>
         <module>person-application</module>
         <module>person-data-rest</module>
+        <module>person-rest</module>
     </modules>
 
     <dependencies>
