@@ -45,7 +45,7 @@ public class PersonRepositoryAdapterIT {
 
     @Container
     private static MySQLContainer mySQLContainer = new MySQLContainer("mysql:5.7")
-            .withDatabaseName("it-test-db")
+            .withDatabaseName("integration-tests-db")
             .withUsername("sa")
             .withPassword("sa");
 
